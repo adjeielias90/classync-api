@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  location: MyString
+  time: 2017-11-16 14:07:53
+  flag: false
+
+two:
+  code: MyString
+  location: MyString
+  time: 2017-11-16 14:07:53
+  flag: false

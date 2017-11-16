@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cancelled: false
+  postponed: false
+  ongoing: false
+  pending: false
+
+two:
+  cancelled: false
+  postponed: false
+  ongoing: false
+  pending: false
