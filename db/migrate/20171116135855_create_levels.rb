@@ -1,9 +1,9 @@
 class CreateLevels < ActiveRecord::Migration[5.1]
   def change
     create_table :levels do |t|
-      t.string :name, :limit => 3
+      t.string :name
       t.integer :size
-      t.boolean :flag, :default => false
+      t.boolean :flag
 
       t.timestamps
     end

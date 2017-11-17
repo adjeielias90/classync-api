@@ -3,7 +3,6 @@ class CreateCourses < ActiveRecord::Migration[5.1]
     create_table :courses do |t|
       t.string :code
       t.string :location
-      t.datetime :time
       t.boolean :flag
 
       t.timestamps

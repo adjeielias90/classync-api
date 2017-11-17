@@ -5,7 +5,7 @@ class CreateStates < ActiveRecord::Migration[5.1]
       t.boolean :postponed
       t.boolean :ongoing
       t.boolean :pending
-
+      
       t.timestamps
     end
   end
