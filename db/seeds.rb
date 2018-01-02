@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Semester.create({
+start: Faker::Date.between(2.days.ago, Date.today),
+ending: Faker::Date.forward(90)
+})
+
