@@ -10,3 +10,4 @@ start: Faker::Date.between(2.days.ago, Date.today),
 ending: Faker::Date.forward(90)
 })
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
