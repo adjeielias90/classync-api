@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180114090120) do
+ActiveRecord::Schema.define(version: 20180115062958) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -52,13 +52,13 @@ ActiveRecord::Schema.define(version: 20180114090120) do
 
   create_table "courses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "code"
-    t.string "location"
-    t.integer "class_id"
+    t.integer "classroom_id"
     t.integer "state_id"
     t.integer "period_id"
     t.boolean "flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "level_id"
   end
 
   create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20180114090120) do
     t.boolean "flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "classroom_id"
   end
 
   create_table "semesters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -92,6 +93,7 @@ ActiveRecord::Schema.define(version: 20180114090120) do
     t.boolean "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "students", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

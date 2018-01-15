@@ -67,7 +67,7 @@ module Api
             private
 
             def course_params
-                params.permit(:code, :location, :class_id, :state_id, :period_id, :flag )
+                params.permit(:code, :class_id, :state_id, :period_id, :flag )
             end
             
         end

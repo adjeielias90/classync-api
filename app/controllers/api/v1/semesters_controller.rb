@@ -37,8 +37,10 @@ module Api
                 @semester = Semester.find(params[:id])
         
                 if @semester.update(params[:semester].permit(:end))
+                    @semester.flag = true
                     render json: {status: 'SUCCESS', message: 'Update successful', data:@semester}, status: :ok
                 else
+                    @semester.flag = false
                     render json: {status: 'ERROR', message: 'Syntax error or Incorrect Input', data:@semester.errors}, status: :unprocessable_entity
                 end
             end
@@ -55,7 +57,7 @@ module Api
             private
 
             def semester_params
-                params.permit(:start, :end)
+                params.permit(:start, :end, :flag)
             end
             
         end
