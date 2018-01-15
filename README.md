@@ -7,10 +7,11 @@ Refer to seeds.rb to for default login and password
 
 * Ruby version
  Use no later than ruby 2.3.3p222
- -Install ruby:
+ -Install ruby: railsinstaller.org
+  Linux users should install node-js before attempting rails installation
  
 *Rails version - 5.1.4
-  -Install Rails: 
+  -Install Rails: railsinstaller.org
 
 
 * System dependencies
@@ -50,7 +51,8 @@ Start the rails server:
 rails s
 
 Navigate to /admin/login
-Refer to: ../db/seeds.rb for admin login and password
+Refer to: ../db/seeds.rb for default admin login and password.
+    Ths should later be changed.
 
 The seeds.rb file contains seed data to initialize the API for development. Make sure to get rid of it in production.
 

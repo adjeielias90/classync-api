@@ -4,4 +4,6 @@ class State < ApplicationRecord
     def display_name
         return self.name.to_s
     end
+
+    scope :pending, -> {where( :pending => true )}
 end

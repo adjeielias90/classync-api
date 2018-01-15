@@ -6,6 +6,8 @@ ActiveAdmin.setup do |config|
   #
   config.site_title = "Clsapi"
 
+  config.footer = "Class API Revision v0.9"
+
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #

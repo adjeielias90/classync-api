@@ -3,6 +3,13 @@ ActiveAdmin.register Period do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 permit_params :time, :classroom_id
+index do
+    #column :time
+    column :classroom
+    column :flag
+    actions
+end
+
 #
 # or
 #
