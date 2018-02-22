@@ -7,6 +7,8 @@ index do
     #column :time
     column :classroom
     column :flag
+    column :name
+    column :id
     actions
 end
 

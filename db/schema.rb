@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180115062958) do
+ActiveRecord::Schema.define(version: 20180222184025) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 20180115062958) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "attendances", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.boolean "present", default: false
+    t.integer "student_id"
+    t.integer "period_id"
+    t.integer "course_id"
+    t.integer "today_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "classrooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -76,6 +86,7 @@ ActiveRecord::Schema.define(version: 20180115062958) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "classroom_id"
+    t.string "name"
   end
 
   create_table "semesters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

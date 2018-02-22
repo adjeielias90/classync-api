@@ -11,7 +11,9 @@ Rails.application.routes.draw do
       resources :periods
       resources :semesters
       resources :states
-      resources :students   
+      resources :students do
+        resources :attendances
+      end 
     end
   end 
 

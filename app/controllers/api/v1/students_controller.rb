@@ -16,8 +16,8 @@ module Api
             end
 
             def show
-                @student = Student.find(params[:id])
-                if @student.exists?
+                if
+                    @student = Student.find(params[:id])
                     render json: {status: 'SUCCESS', message: 'Fetch successful', data:@student}, status: :ok
                 else
                     render json: {status: 'ERROR', message: 'Record not found', data:@student_errors}, status: :unprocessable_entity

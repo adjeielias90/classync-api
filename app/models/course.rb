@@ -5,6 +5,9 @@ class Course < ApplicationRecord
     belongs_to :classroom
     validates :code, presence: true, allow_nil: false
     validates :classroom_id, presence: true, allow_nil: false
+    has_many :attendances
+    
+    #self.primary_key = 'level_id'
     def display_name
         return self.code.to_s
     end
