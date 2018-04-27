@@ -3,7 +3,7 @@ class Attendance < ApplicationRecord
     belongs_to :student
     belongs_to :period
     belongs_to :course
-    #belongs_to :today
+    belongs_to :today
 
 
 end

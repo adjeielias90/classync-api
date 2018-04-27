@@ -19,7 +19,7 @@ module Api
 
             def show
                 @state = State.find(params[:id])
-                if @state.exists?
+                if @state
                     render json: {status: 'SUCCESS', message: 'Fetch successful', data:@state}, status: :ok
                 else
                     render json: {status: 'ERROR', message: 'Record not found', data:@state.errors}, status: :unprocessable_entity

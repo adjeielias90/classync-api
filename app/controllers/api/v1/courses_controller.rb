@@ -22,9 +22,9 @@ module Api
 
 
             def show
-                @course = Course.find(params[:id])
+                @course = Course.friendly.find(params[:id])
                 if @course.present?
-                    render json: {status: 'SUCCESS', message: 'Fetch successful', data:@course}, status: :ok
+                    render json: {status: 'SUCCESS', message: 'Fetch successful', data:@course}, include:'level', status: :ok
                 else
                     render json: {status: 'ERROR', message: 'Record not found', data:@course.errors}, status: :unprocessable_entity
                 end
@@ -59,6 +59,7 @@ module Api
                     render json: {status: 'SUCCESS', message: 'Course removed', data:@course}, status: :ok
                 else
                     render json: {status: 'ERROR', message: 'Update Error', data:@course.errors}, status: :unprocessable_entity
+                end
             end
 
 
@@ -67,7 +68,7 @@ module Api
             private
 
             def course_params
-                params.permit(:code, :class_id, :state_id, :period_id, :flag )
+                params.permit(:code, :class_id, :state_id, :period_id, :classroom_id, :level_id )
             end
             
         end

@@ -1,8 +1,8 @@
-ActiveAdmin.register Course do
+ActiveAdmin.register Today do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :code, :classroom_id, :period_id, :level_id, :flag, :state_id, :today_id
+permit_params :day
 #
 # or
 #

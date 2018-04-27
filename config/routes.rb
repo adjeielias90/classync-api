@@ -7,13 +7,20 @@ Rails.application.routes.draw do
       resources :semesters
       resources :classrooms
       resources :courses
-      resources :levels
+      resources :states
+      resources :levels do
+        resources :todays
+        resources :courses
+        resources :todays do
+         resources :courses
+        end
+      end
       resources :periods
       resources :semesters
-      resources :states
       resources :students do
+        resources :classyncs
         resources :attendances
-      end 
+      end
     end
   end 
 

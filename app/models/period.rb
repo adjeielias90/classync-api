@@ -1,6 +1,6 @@
 class Period < ApplicationRecord
     has_many :courses
-    belongs_to :classroom
+    has_and_belongs_to_many :classrooms
     has_many :attendances
 
     #self.primary_key = 'name'

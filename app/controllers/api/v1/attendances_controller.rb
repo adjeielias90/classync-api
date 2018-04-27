@@ -32,7 +32,7 @@ module Api
                     @attendance.save
                     render json: {status: 'SUCCESS', message: 'Attendance Recorded!', data:@attendance}, status: :ok
                 else
-                    render json: {status: 'ERROR', message: 'Record not saved', data:@attendance_errors}, status: :unprocessable_entity
+                    render json: {status: 'ERROR', message: 'Record not saved', data:@attendance.errors}, status: :unprocessable_entity
                 end
             end
         
@@ -47,7 +47,7 @@ module Api
             private
             
             def attendance_params
-                params.permit(:present, :student_id, :course_id, :period_id)
+                params.permit(:present, :student_id, :course_id, :period_id, :today_id)
             end
 
 

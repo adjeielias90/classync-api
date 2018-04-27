@@ -5,7 +5,7 @@ ActiveAdmin.register Period do
 permit_params :time, :classroom_id
 index do
     #column :time
-    column :classroom
+    column :classroom_id
     column :flag
     column :name
     column :id

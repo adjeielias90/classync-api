@@ -8,17 +8,25 @@ ActiveAdmin.setup do |config|
 
   config.footer = "Class API Revision v1.3"
 
+
+
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
-  # config.site_title_link = "/"
+  config.site_title_link = "/"
 
   # Set an optional image to be displayed for the header
   # instead of a string (overrides :site_title)
   #
   # Note: Aim for an image that's 21px high so it fits in the header.
   #
-  # config.site_title_image = "logo.png"
+ # config.site_title_image = "app/asssets/images/knust.png"
+
+#ActiveAdmin:ResourceController.class_eval do 
+    #def find_resource
+        #resource_class.is_a?(FriendlyId) ? scoped_collection.friendly.find(params[:id]) : scoped_collection.find(params[:id])
+    #end
+#end
 
   # == Default Namespace
   #

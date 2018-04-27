@@ -33,6 +33,7 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+gem 'friendly_id', '~> 5.2', '>= 5.2.3'
 
 group :development, :test do
 

@@ -18,7 +18,7 @@ module Api
             def show
                 level = Level.find(params[:id])
                     if level.present?
-                        render json: {status: 'SUCCESS', message: 'Fetch successful', data:level}, status: :ok
+                        render json: {status: 'SUCCESS', message: 'Fetch successful', data:level}, include:'courses',  status: :ok
                     else
                         render json: {status: 'ERROR', message: 'Record not found', data:level.errors}, status: :unprocessable_entity
                     end

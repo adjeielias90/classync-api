@@ -60,7 +60,8 @@ The seeds.rb file contains seed data to initialize the API for development. Make
 
 
 
-* Services (job queues, cache servers, search engines, etc.)
+* Services-API Operation (job queues, cache servers, search engines, etc.)
+
 
 * Deployment instructions
 API is best deployed to a VPS.
@@ -72,6 +73,10 @@ Basic knowledge in Git and GitHub
 Basic knowledge in SSH and Cloud VM's 
 - Learn SSH: 
 Linux/Bash/Putty Client CLI Tools
+
+
+
+
 
 **Deployment Instructions**
 
