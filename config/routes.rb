@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace 'api' do
     namespace 'v1' do
+
+      post 'auth/login', to: 'users#login'
       resources :semesters
       resources :classrooms
       resources :courses
@@ -18,6 +20,8 @@ Rails.application.routes.draw do
       resources :periods
       resources :semesters
       resources :students do
+        post 'auth/register', to: 'users#register'
+        get 'test', to: 'users#test'
         resources :classyncs
         resources :attendances
       end
