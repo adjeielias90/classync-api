@@ -22,7 +22,7 @@ module Api
 
             def test
             render json: {
-                    message: 'You have passed authentication and authorization test'
+                    message: 'You have passed authentication and authorization test. This method/API-endpoint is meant for testing purposes only. Please do not abuse it.'
                 }
             end
 

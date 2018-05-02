@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+    <div class="container-fluid">
+
+        <div class="row">
+        <div class=" sidebar-wrapper col-md-2 alert alert-primary">Quick Links<br/>
+            <div class="list-group-flush">
+            <button type="button" class="list-group-item list-group-item-action"><a href="#registerUser">Adding class reps</a></button>
+            <button type="button" class="list-group-item list-group-item-action"><a href="#loginUser">Logging in</a></button>
+            <button type="button" class="list-group-item list-group-item-action"><a href="#markAttendance">Marking attendance</a></button>
+            <button type="button" class="list-group-item list-group-item-action"><a href="#testToken">Getting request token</a></button>
+            <button type="button" class="list-group-item list-group-item-action"><a href="#getStudent">Request sample: Student</a></button>
+            <button type="button" class="list-group-item list-group-item-action"><a href="#getCourses">Request sample: Today's Courses</a></button>
+            <button type="button" class="list-group-item list-group-item-action"><a href="#getCourse">Request sample: Course</a></button>
+            <button type="button" class="list-group-item list-group-item-action"><a href="#reCourse">Request sample: Reschedule course</a></button>
+            <button type="button" class="list-group-item list-group-item-action"><a href="#suspendClass">Request sample: Suspend class</a></button>
+            </div>
+        
+        </div>
+        <div class="col-md-10">
+        
+        
+        
+        
+            <h1 class="heading">API Documentation - Essentials </h1>
+
+            <div>
+                <h3>Your Main Frontend Process will look something like this. </h3>
+                <h4>1. Sign In</h4>
+                <h4>2. Use user data to get student_id</h4>
+                <h4>3. Use student_id to query database for any needed infor such as class, courses for today and tomorrow</h4>
+                <h4>4. Let student reschedule courses based on their roles.</h4>
+            </div><hr/>
+            <p>This page provides insight on important Endpoints you might use in your front-end client. All other endpoints are present in the API documentation</p>
+                    <h4>Attributes: All fields are required * </h4>
+            <hr/>
+                    <h3> IMPORTANT: All requests except attendance require authentication. The way to login and test is later discussed on this page. Server always responds with a JSON response.</h3>
+                    <h4>Every request should to be in valid JSON format, Replace localhost namespace with API namespace or domain. </h4>
+                <hr/>
+                    <div>
+                        <h3 id= "markAttendance">API Process: POST - Marking Attendance</h3>
+
+                        <small><code>http://localhost:3001/api/v1/students/{student_id}/attendances</code></small><br/>
+                        <br/>
+                        <small>
+                            <code>	
+                            "present":"boolean"
+                            </code>
+                        </small><br/>
+                        <small>
+                            <code>	
+                            "student_id":"integer"
+                            </code>
+                        </small><br/>
+                        <small>
+                            <code>	
+                            "course_id":"integer"
+                            </code>
+                        </small><br/>
+                        <small>
+                            <code>	
+                            "period_id":"intger"
+                            </code>
+                        </small><br/>
+                        <small>
+                            <code>	
+                            "today_id":"integer"
+                            </code>
+                        </small><br/>
+                        
+                    </div>
+                <hr/>
+
+                    <div id="registerUser">
+                        <h3>API Process: POST - Adding a student as a rep </h3>
+                        <small><code>http://localhost:3001/api/v1/students/{student_id}/auth/register</code></small><br/>
+                        <br/>
+                        <small>
+                            <code>	
+                            "email":"email"
+                            </code>
+                        </small><br/>
+                        <small>
+                            <code>	
+                            "student_id":"integer"
+                            </code>
+                        </small><br/>
+                        <small>
+                            <code>	
+                            "student_rep_role":"boolean"
+                            </code>
+                        </small><br/>
+                    </div>
+
+
+                <hr/>
+
+                    <div>
+                        <h3 id = "loginUser">API Process: POST - Logging In, Server will return a token valid for 8hrs </h3>
+                        Token Format:
+                        <h3>authentication: Bearer {token}</h3>
+                        <small><code>http://localhost:3001/api/v1/auth/login</code></small><br/>
+                        <br/>
+                        <small>
+                            <code>	
+                            "email":"email"
+                            </code>
+                        </small><br/>
+                        <small>
+                            <code>	
+                            "password":"password"
+                            </code>
+                        </small><br/>
+                    </div>
+
+
+                <hr/>
+
+                    <div>
+                        <h3 id="testToken">API Process: GET -Testing a login token received from the server for authorization. </h3>
+                            Token Format:
+                        <h3>authentication: Bearer {token}</h3>
+                        <small><code>http://localhost:3001/api/v1/test</code></small><br/>
+                        <br/>
+                        <small>
+                            This request is a GET request, and requires authorization like any other request
+                            sent to the API. You're required to use the token received from your login request to authorize.<br/><br/>
+                            Required Headers: <br/><br/>
+                            <code>	
+                            "authorization":"Bearer {token}"
+                            </code>
+                        </small><br/>
+
+                    </div>
+
+                <hr/>
+
+                    <div>
+                        <h3 id= "getStudent">API Process: GET - Getting Student data, Using the students_id. Please authorize request with token received from the API. </h3>
+                        <small><code>http://localhost:3001/api/v1/students/{student_id}/</code></small><br/>
+                        <br/>
+                        <small>
+                            This request is a GET request, and requires authorization like any other request
+                            sent to the API <br/><br/>
+                            Required Headers: Content-Type, Authorization <br/><br/>
+
+                            <p>This request returns all the id's data associated with the student and can be used to make further requests using the association id's</p>
+                        </small><br/>
+
+                    </div>
+
+
+                <hr/>
+
+                    <div>
+                        <h3 id= "getCourses">API Process: GET - Getting courses for a particular day, Using the level_id(obtained from the student GET request) and the today_id: 1=Monday, 5=Friday in that order. Please authorize request with token received from the API. </h3>
+                        <small><code>http://localhost:3001/api/v1/levels/#{level_id}/todays/#{today_id}</code></small><br/>
+                        <br/>
+                        <small>
+                            This request is a GET request, and requires authorization like any other request
+                            sent to the API <br/><br/>
+                            Required Headers: Content-Type, Authorization <br/><br/>
+
+                            <p>This request returns all the courses for that particular day for that level(class)</p>
+                        </small><br/>
+
+                    </div>
+
+                <hr/>
+
+                    <div>
+                        <h3 id = "getCourse">API Process: GET - Getting a single course , . Please authorize request with token received from the API. </h3>
+                        <small><code>http://localhost:3001/api/v1/courses/#{today_id}</code></small><br/>
+                        <br/>
+                        <small>
+                            This request is a GET request, and requires authorization. Unlike other tables the courses table received a recent update 
+                            that allows the request to be sent using an id_slug obatined from the name of the course
+                            hence coursename CSM-292 becomes /csm-292 instead of having to remember the id_numbers.  <br/><br/>
+                            Required Headers: Content-Type, Authorization <br/><br/>
+
+                            <p>This request returns all the deatails of the course that can be used to reschedule the course to another period or suspend it.</p>
+                        </small><br/>
+
+                    </div>
+
+
+                <hr/>
+
+                    <div>
+                        <h3 id = "reCourse">API Process: POST - Reschuduling a course to another period by changing peiord_id(Please note that as at now there are 4 periods. More can be added from the backend.). Please authorize request with token received from the API. </h3>
+                        <small><code>http://localhost:3001/api/v1/courses/#{course_id}</code></small><br/>
+                        <br/>
+                        <small>
+                            This request is a POST request, and requires authorization. <br/><br/>
+
+                            <p>This request reschules a class.</p>
+                            <p><strong>period_id and meanings</strong></p>
+                            <p>1 - 8AM Class</p>
+                            <p>2 - 10AM Class</p>
+                            <p>3 - 12PM Class</p>
+                            <p>4 - 2PM Class</p>
+                        <br/>Requires:<br/>
+                            <code>	
+                            "period_id":"integer"
+                            </code><br/>
+                        </small><br/>
+
+                    </div>
+
+                <hr/>
+
+                    <div>
+                        <h3 id = "suspendClass">API Process: POST - Suspending a class with the state_id.  </h3>
+                        <small><code>http://localhost:3001/api/v1/courses/#{course_id}</code></small><br/>
+                        <br/>
+                        <small>
+                            This request is a POST request, and requires authorization. <br/><br/>
+
+                            <p>This request reschules a class.</p>
+                            <p><strong>state_id and meanings</strong></p>
+                            <p>1 - Cancel Class</p>
+                            <p>2 - Postpone Class</p>
+                            <p>3 - Ongoing Class</p>
+                            <p>4 - Pending Class</p>
+                        <br/>Requires:<br/>
+                            <code>	
+                            "state_id":"integer"
+                            </code><br/>
+                        </small><br/>
+
+                    </div>
+        </div>   
+        </div>
+
+    
+    </div>
+
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+

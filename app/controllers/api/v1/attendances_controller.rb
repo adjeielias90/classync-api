@@ -1,6 +1,7 @@
 module Api
     module V1
         class AttendancesController < ApplicationController
+            skip_before_action :authenticate_request, only: %i[create, update]
 #        before_filter :find_student
         
 

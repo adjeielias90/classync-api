@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
+  get 'pages/index'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  root 'pages#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace 'api' do
     namespace 'v1' do
+      
 
       post 'auth/login', to: 'users#login'
+      get 'test', to: 'users#test'
       resources :semesters
       resources :classrooms
       resources :courses
@@ -21,7 +27,6 @@ Rails.application.routes.draw do
       resources :semesters
       resources :students do
         post 'auth/register', to: 'users#register'
-        get 'test', to: 'users#test'
         resources :classyncs
         resources :attendances
       end
