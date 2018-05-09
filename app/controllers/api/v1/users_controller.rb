@@ -5,8 +5,8 @@ module Api
 
 
             def register
-                @user = User.create(user_params)
-               if @user.save
+                
+               if  @user = User.new(user_params)
                 response = { message: 'User created successfully'}
                 render json: response, status: :created 
                else
@@ -27,30 +27,31 @@ module Api
             end
 
 
+
             
         private
             
-        def user_params
-            params.permit(
-            :email,
-            :password,
-            :student_id,
-            :student_rep_role
-            )
-        end
-
-        def authenticate(email, password)
-            command = AuthenticateUser.call(email, password)
-        
-            if command.success?
-              render json: {
-                access_token: command.result,
-                message: 'Login Successful'
-              }
-            else
-              render json: { error: command.errors }, status: :unauthorized
+            def user_params
+                params.permit(
+                :email,
+                :password,
+                :student_id,
+                :student_rep_role
+                )
             end
-        end
+
+            def authenticate(email, password)
+                command = AuthenticateUser.call(email, password)
+            
+                if command.success?
+                render json: {
+                    access_token: command.result,
+                    message: 'Login Successful'
+                }
+                else
+                render json: { error: command.errors }, status: :unauthorized
+                end
+            end
 
         
 

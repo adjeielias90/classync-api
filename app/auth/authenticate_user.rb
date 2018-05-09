@@ -12,7 +12,7 @@ class AuthenticateUser < ApplicationController
     def call
       JsonWebToken.encode(user_id: user.id) if user
     end
-  
+
     private
   
     def user

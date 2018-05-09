@@ -145,6 +145,7 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.3.0)
     minitest (5.10.3)
+    mysql2 (0.4.10-x86-mingw32)
     nio4r (2.1.0)
     nokogiri (1.8.1-x86-mingw32)
       mini_portile2 (~> 2.3.0)
@@ -243,6 +244,7 @@ DEPENDENCIES
   friendly_id (~> 5.2, >= 5.2.3)
   inherited_resources!
   jwt
+  mysql2 (>= 0.3.18, < 0.5)
   pg
   puma (~> 3.7)
   rack-cors
