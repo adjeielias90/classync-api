@@ -1,10 +1,10 @@
 ActiveAdmin.register Student do
 
-before_filter :only => [:show, :edit, :update] do
+before_action :only => [:show, :edit, :update] do
     @student = Student.find_by_index_number(@student)
 end
 
-before_filter :only => [:index] do
+before_action :only => [:index] do
     @students = Stduents.all.order('created_at DESC')
 end 
 # See permitted parameters documentation:
