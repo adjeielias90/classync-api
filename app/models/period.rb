@@ -7,8 +7,7 @@ class Period < ApplicationRecord
 
 
     def display_name
-        return self.time.to_s(:due_time)
-       
+        return self.name.to_s
     end
 
 end
