@@ -1,12 +1,12 @@
 ActiveAdmin.register Student do
 
-    before_filter do
-        Student.class_eval do
-            def to_param
-                id.to_s
-            end
-        end
-    end
+before_filter :only => [:show, :edit, :update] do
+    @student = Student.find_by_index_number(@student)
+end
+
+before_filter :only => [:index] do
+    @students = Stduents.all.order('created_at DESC')
+end 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #

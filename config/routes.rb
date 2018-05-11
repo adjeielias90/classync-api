@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
       
       get 'test', to: 'users#test'
-      get   'admin/students', :to => 'students#index', :as => :student_root
+     
       resources :semesters
       resources :classrooms
       resources :courses

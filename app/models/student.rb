@@ -3,6 +3,9 @@ class Student < ApplicationRecord
     belongs_to :level
     has_many :attendances
     has_one :user
+    def to_param
+        index_number
+    end
     
     self.primary_key = 'index_number'
 
