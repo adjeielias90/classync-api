@@ -2,7 +2,7 @@ module Api
     module V1
         class StudentsController < ApplicationController
             def index
-                @students = Student.order('created_at DESC');
+                @students = Student.all.order('created_at DESC');
                 render json: {status: 'SUCCESS', message:'Fetch successful for Student', data:@students},status: :ok
             end
 
