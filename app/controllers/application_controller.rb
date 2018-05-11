@@ -2,7 +2,7 @@
     #module V1
 
         class ApplicationController < ActionController::Base
-            before_action :authenticate_request
+            #before_action :authenticate_request
             include ActionView::Layouts
             include ActionController::MimeResponds
             include ExceptionHandler

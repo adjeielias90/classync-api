@@ -8,13 +8,14 @@ Rails.application.routes.draw do
     namespace 'v1' do
       
 
-      post 'auth/login', to: 'users#login'
+      
       get 'test', to: 'users#test'
       resources :semesters
       resources :classrooms
       resources :courses
       resources :states
       resources :levels do
+        resources :students
         resources :todays
         resources :courses
         resources :todays do
@@ -25,6 +26,7 @@ Rails.application.routes.draw do
       resources :semesters
       resources :students do
         post 'auth/register', to: 'users#register'
+        post 'auth/login', to: 'users#login'
         resources :classyncs
         resources :attendances
       end

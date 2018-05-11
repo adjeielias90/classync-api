@@ -7,7 +7,7 @@ module Api
 
             def index
                 classrooms = Classroom.order('created_at DESC');
-                render json: {status: 'SUCCESS', message:'Fetch successful for Classroom', data:classrooms},status: :ok
+                render json: {status: 'SUCCESS', message:'Fetch successful for Classroom', data:@classrooms},status: :ok
             end
 
             def create

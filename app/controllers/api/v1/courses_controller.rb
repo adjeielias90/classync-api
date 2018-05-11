@@ -6,7 +6,7 @@ module Api
         class CoursesController < ApplicationController
             def index
                 courses = Course.order('created_at DESC');
-                render json: {status: 'SUCCESS', message:'Fetch successful for Course', data:courses},status: :ok
+                render json: {status: 'SUCCESS', message:'Fetch successful for Course', data:@courses},status: :ok
             end
 
             def create
