@@ -57,7 +57,7 @@ module Api
             private
 
             def student_params
-                params.permit(:reference_number, :level_id, :index_number, :image_url)
+                params.permit(:reference_number, :level_id, :index_number, :image_url, :email)
             end
             
         end

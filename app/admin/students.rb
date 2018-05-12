@@ -3,7 +3,7 @@ ActiveAdmin.register Student do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :id, :reference_number, :level_id, :index_number, :image_url
+permit_params :id, :reference_number, :level_id, :index_number, :image_url, :email
 
 
 #
