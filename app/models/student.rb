@@ -3,6 +3,9 @@ class Student < ApplicationRecord
     belongs_to :level
     has_many :attendances
     has_many :users
+    def display_name
+        return self.id.to_s
+    end 
     
     self.primary_key = 'index_number'
     EMAIL_REGEX = /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/

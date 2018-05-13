@@ -4,6 +4,9 @@ class Attendance < ApplicationRecord
     belongs_to :period
     belongs_to :course
     belongs_to :today
+    def display_name
+        return self.student_id.to_s
+    end 
 
 
 end

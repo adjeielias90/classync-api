@@ -14,6 +14,7 @@ module Api
                 if @course.save
                     render json: {status: 'SUCCESS', message:'Course was added succesfully', data:@course},status: :ok
                 else
+                    
                     render json: {status: 'ERROR', message:'Syntax error or Incorrect input', data:@course.errors},status: :unprocessable_entity
                 end
             end
