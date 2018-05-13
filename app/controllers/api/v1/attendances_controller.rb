@@ -20,7 +20,7 @@ module Api
             end
 
             def show
-                @attendance = Attendance.find(params[:id])
+                @attendance = Attendance.find_by_student_id(params[:student_id])
             end
 
 
