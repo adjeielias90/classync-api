@@ -14,13 +14,13 @@ module Api
 
             def index
                 if
-                    @attendance = Attendance.all(:order_by => :period_id)
+                    @attendance = Attendance.where(params[:student_id])
                     render json: {status: 'SUCCESS', message: 'Fetch Successful', data:@attendance}, status: :ok
                 end
             end
 
             def show
-                @attendance = Attendance.find_by_student_id(params[:student_id])
+                @attendance = Attendance.find(params[:student_id])
             end
 
 
@@ -34,6 +34,30 @@ module Api
                     render json: {status: 'SUCCESS', message: 'Attendance Recorded!', data:@attendance}, status: :ok
                 else
                     render json: {status: 'ERROR', message: 'Record not saved', data:@attendance.errors}, status: :unprocessable_entity
+                end
+            end
+
+            def new
+                @attendance = Attendance.new(attendance_params)
+            end 
+
+
+            def edit
+                @attendance = Attendance.find(params[:student_id])
+            end
+
+            
+
+            def update
+                @attendance = Attendance.find(params[:student_id])
+        
+                if @attendance.update(params[:attendance].permit(:present))
+
+                    render json: {status: 'SUCCESS', message: 'Update successful', data:@attendance}, status: :ok
+
+
+                else
+                    render json: {status: 'ERROR', message: 'Syntax error or Incorrect Input', data:@attendance.errors}, status: :unprocessable_entity
                 end
             end
         
