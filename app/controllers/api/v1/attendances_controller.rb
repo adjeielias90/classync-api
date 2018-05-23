@@ -72,7 +72,7 @@ module Api
             private
             
             def attendance_params
-                params.permit(:present, :student_id, :course_id, :period_id, :today_id)
+                params.permit(:present, :student_id, :period_id, :course_id, :today_id)
             end
 
 

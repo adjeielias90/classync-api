@@ -3,7 +3,7 @@ ActiveAdmin.register Attendance do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 
-permit_params :present, :student_id, :course_id, :period_id, :today_id
+permit_params :present, :student_id, :period_id, :course_id, :today_id
 #
 # or
 #
